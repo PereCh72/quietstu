@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUI ETS TU? - Un guió de Pere Chardi Garcia</title>
+    <meta name="description" content="Llegeix el guió de teatre 'QUI ETS TU?', un thriller de ciència-ficció sobre una metgessa i una pacient misteriosa que amaga un secret sobre la intel·ligència artificial.">
+
+    <meta property="og:title" content="QUI ETS TU? - Un guió de teatre">
+    <meta property="og:description" content="Un thriller de ciència-ficció sobre una metgessa i una pacient misteriosa.">
+    <meta property="og:image" content="https://[el-teu-usuari].github.io/guio-teatre/portada.jpg"> 
+    <meta property="og:url" content="https://[el-teu-usuari].github.io/guio-teatre/"> 
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QUI ETS TU? - Un guió de teatre">
+    <meta name="twitter:description" content="Un thriller de ciència-ficció sobre una metgessa i una pacient misteriosa.">
+    <meta name="twitter:image" content="https://[el-teu-usuari].github.io/guio-teatre/portada.jpg">
+
+    <style>
+        /* --- Importació de Fonts Modernes (Google Fonts) --- */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap');
+
+        /* --- Estils Generals (Tema Fosc) --- */
+        :root {
+            --color-fons: #121212;
+            --color-text: #e0e0e0;
+            --color-secundari: #b3b3b3;
+            --color-accent: #4CAF50; /* Un verd "tech" que lliga amb el CAP i la IA */
+            --color-fons-targeta: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--color-fons);
+            color: var(--color-text);
+            line-height: 1.7;
+            font-size: 18px;
+        }
+
+        h1, h2, h3, .character {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- Secció Hero (Portada) amb efecte Parallax --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            /* Aquí poses la teva imatge */
+            background-image: url('portada.jpg'); 
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Enfosqueix la imatge per llegir el text */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        .scroll-down {
+            position: absolute;
+            z-index: 2;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .scroll-down:hover {
+            background-color: white;
+            color: var(--color-fons);
+        }
+
+        /* --- Contenidor Principal del Guió --- */
+        .script-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        /* --- Estils del Guió --- */
+        .script-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background-color: var(--color-fons-targeta);
+            border-radius: 8px;
+            border-left: 5px solid var(--color-accent);
+        }
+
+        .script-header h2 {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
+        .script-header ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .script-body {
+            margin-top: 2rem;
+        }
+
+        /* Acotacions d'escena */
+        .stage-direction {
+            font-style: italic;
+            color: var(--color-secundari);
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--color-secundari);
+        }
+
+        /* Acotacions dins del diàleg */
+        .stage-direction-inline {
+            font-style: italic;
+            color: var(--color-secundari);
+            font-size: 0.9em;
+        }
+
+        .dialogue {
+            margin-bottom: 1.2rem;
+        }
+
+        /* Personatge */
+        .character {
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-right: 0.5em;
+        }
+        
+        .script-end {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+        }        
+
+        /* --- Efecte de Fade-in (Aparició) --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Botó "Tornar Amunt" --- */
+        #to-top-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: var(--color-accent);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 18px;
+            width: 50px;
+            height: 50px;
+            transition: background-color 0.3s;
+        }
+
+        #to-top-btn:hover {
+            background-color: #5cb85c;
+        }
+
+        /* --- Responsivitat per a Mòbils --- */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            /* Desactivem el parallax en mòbils (dóna problemes) */
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .script-container {
+                width: 95%;
+                margin: 2rem auto;
+                padding: 1rem;
+            }
+
+            .script-header ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>QUI ETS TU?</h1>
+            <p>Un guió de microteatre de Pere Chardi Garcia</p>
+        </div>
+        <a href="#guió" class="scroll-down">Llegir el guió</a>
+    </header>
+
+    <main id="guió" class="script-container">
+
+        <section class="script-header fade-in">
+            <h2>Personatges</h2>
+            <ul>
+                <li>Metgessa</li>
+                <li>Pacient</li>
+                <li>Científic</li>
+            </ul>
+        </section>
+
+        <section class="script-body">
+            
+            <p class="stage-direction fade-in">(Sala d’espera d’un CAP. És tard. La metgessa surt de la consulta per cridar la darrera pacient)</p>
+            
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Hola.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Hola.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Si vol ja pot passar.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No em tracti de vostè, no sóc tan gran.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Com vulguis. <span class="stage-direction-inline">(Fent el gest d’entrar a la consulta)</span></p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Perdoni, podem fer la visita aquí fora, ara ja no queda ningú.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> No és possible, tinc tot l’instrumental a dins.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No pateixi, comencem aquí i després, si cal, ja entrarem a fer servir l’instrumental.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> És que he de prendre notes a l’ordinador.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Les notes es prenen en una llibreta, a l’ordinador es fa la feina de despatx.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Miri, és tard i el dia ha estat llarg, passi o marxi, però no em faci perdre el temps.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Doncs ni entro ni marxo i no em tracti de vostè coi!</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> I per què tu sí que ho fas amb mi?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Perdona, és el costum, als metges sempre se’ls tracta de vostè.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> A què has vingut?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Doncs a la visita del metge, però avui en dia a cal metge li sobra tecnologia i li falta temps. Temps per poder fer la feina de despatx quan marxa el pacient i no durant la visita.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Mira, fem el que podem, els recursos són els que són i el dia té les hores que té.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No suporto veure el metge teclejant l’ordinador mentre li explico el que em passa. <span class="stage-direction-inline">(Persuadint)</span> Per això et demano que seguis aquí amb mi. Vull poder mirar-te als ulls. Les persones ens mirem als ulls quan parlem de coses importants.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Està bé, acabarem abans si m’assec, ara ho veig. A veure, explica’m, què et passa.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Res.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Com?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Res no em passa res. Què et passa a tu?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Però?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Però què?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Mira no entenc res, em demanes seure perquè vols explicar-me el que et passa mirant-me als ulls i quan ho faig, em dius que no et passa res.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Exacte, ara ja no em passa res.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Perdona però estàs com un llum!</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Ara ja no em passa res perquè no tens el coi d’ordinador al davant.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Això és absurd. Hora de plegar, que és tard.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No marxis, que llavors tornarà la por, la por a què em visiti un metge que té al davant un gran i potent ordinador que no el deixa de mirar en cap moment. Ja m’entens, un metge fred i administratiu. No voldràs convertir-te en un d’aquests metges, oi?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Això és xantatge emocional. <span class="stage-direction-inline">(Aixecant-se)</span> Vostè el que pateix és avorriment.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No em tractis de vostè coi, que em venen tots els mals. Amb lo bé que anàvem ho estàs esgarrant tot. Seu o em poso malalta!!</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> A veure. No pots venir aquí per això.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Llavors no em vols tractar?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> No és que no vulgui dona, vostè, vull dir tu, tu; tu has d’anar a un especialista, ell et podrà ajudar.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Un especialista?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Comencem per un psicòleg.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Què vol dir comencem?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Que et visiti un psicòleg, li expliques les teves pors i els teus neguits, ell sabrà dir-nos com seguim.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No vull anar.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Per què no?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Segur que té un ordinador enorme a la consulta, monstruós.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> <span class="stage-direction-inline">(Amb ironia)</span> I un psiquiatre?, potser s’escau més pel teu cas.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Escolta!! No estic boja jo, eh!</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Amb tots els respectes, deixa’m dir-te que necessites ajuda. Presentes un quadre obsessiu que hauria de valorar un professional.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Bajanades, què no ets prou professional tu?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Vull dir un professional especialitzat. Jo només sóc el primer esgraó.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Doncs jo vull que siguis tu: no tens ordinador i em tuteges, és la teràpia que necessito, la medicina que em funciona. I no em diguis que no em puc automedicar.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Molt bé, doncs ja hem acabat, t’avisarem quan...</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No, si us plau, que llavors em tornaré a posar malalta.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> No voldràs que ens passem aquí l’eternitat.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No podríem, res és etern.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Exacte, la visita tampoc ho és. Gràcies i...</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No tan de pressa, encara no hem tractat lo teu.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Lo meu? Senyora, vol fer el favor d’anar cap a casa...</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Estàs casada?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> I a vostè què li importa, què n’ha de fer?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Contesta’m si us plau, ja veuràs per què t’ho pregunto.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> <span class="stage-direction-inline">(Resignada)</span> Sí que estic casada.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Tens fills?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Va, si us plau.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> En tens o no?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Sí.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Quan va ser el darrer dia que vas veure la família?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Això és absurd, els vaig veure... <span class="stage-direction-inline">(Intenta recordar quin dia va ser)</span></p>
+
+            <p class="stage-direction fade-in">(Pausa)</p>
+
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Com és la casa en què viviu?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Doncs és una casa del més normal.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Quan se li va fer la neteja?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> A veure... quin dia va ser?... <span class="stage-direction-inline">(Es queda pensant quin va ser el darrer dia)</span></p>
+
+            <p class="stage-direction fade-in">(La metgessa seu desconcertada)</p>
+
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Com és que no puc recordar aquestes coses? Qui ets tu?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Algú que et vol ajudar.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Explica’t millor, qui ets?, què hi fas aquí?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Jo només tinc les preguntes, les respostes les has de trobar tu.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Que juguem a les endevinalles potser?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Potser.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Au va, deixem-nos de misteris i digue’m el que m’hagis de dir.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Ja t’ho he dit, jo només tinc les preguntes. Qui és ta mare?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Ma mare és ma mare.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> On vas néixer si t’ho estimes més, parla’m de la teva infància.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Va ser una infància molt normal, feliç.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Continua.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> No sé què vols que et digui, vivíem en un barri obrer de l’extraradi. Saps els blocs de pisos de color verd que es veuen quan surts de la ciutat cap al nord? Doncs aquells. Els pisos urbanístics els diuen. Va ser un projecte del govern. Hi havia centenars d’habitatges, però ens coneixíem quasi tots. Jo tenia moltes amigues i amics al barri, ho passàvem molt bé. Va ser una bona època. <span class="stage-direction-inline">(Amb nostàlgia)</span> Anàvem a la platja amb el dos cavalls del pare, posàvem el casset de La Trinca i tots cantàvem contents les cançons...</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Això sí que ho recordes.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> On vols anar a parar?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> A enlloc, només et vull ajudar a recordar. Parla’m de la teva adolescència.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Mira..., no estic segura de voler fer això, no et conec i certament m’estic impacientant.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Calma, només parlem.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Més aviat l’única que parla sóc jo, tu ho mantens tot en un context de misteri que em comença a cansar.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Està bé, doncs me’n vaig.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Espera, no em deixis així.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Serà a la meva manera o no serà.</p>
+            
+            <p class="stage-direction fade-in">(Pausa)</p>
+
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> D’acord. L’adolescència va ser suposo com la de qualsevol adolescent: transgressora i ingènua. Tenia una colla d’amigues, les xungues ens deien. Ens deien així perquè el destí va voler ajuntar cinc lesbianes. Els nois, ignorants i incapaços d’adonar-se que no érem heterosexuals, mai aconseguien seduir a cap de les cinc. Ens vam guanyar fama d’estretes i entre els nois es va començar a dir: “ui amb aquelles ho tens xungo”. Quins temps..., zero responsabilitats, més enllà dels estudis és clar, joventut, i unes ganes voraces de menjar-se el món. Potser la millor de les etapes, si no fos perquè, la poca experiència en transitar per la vida i aquesta ingenuïtat inconscient que té l’adolescència, la fan envellir malament quan t’envaeix la nostàlgia, i es desperten els records.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> I després què va passar?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Què vols dir?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Com vas arribar fins aquí?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Doncs vaig cursar medicina...</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Per què?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> De joveneta sentia curiositat per la medicina, m’interessava. Sempre llegia els articles divulgatius de les revistes especialitzades, em fascinava. El meu pare em va animar a cursar la carrera, sempre em deia que havia de lluitar pel que m’agradava i mirar de dedicar-m’hi, sense importar les adversitats o les sortides professionals.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Continua.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> A la facultat vaig conèixer a la que ara és la meva parella. Ens vam enamorar perdudament. Així que vam acabar els estudis i vam trobar la primera feina ens vam casar. A ella el riu la va dur a fer recerca i ara treballa en un laboratori. A mi, pel contrari, sempre m’ha agradat ajudar, el contacte i tracte proper amb la gent. Per això vaig opositar per ser metgessa d’atenció primària.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> I els fills, com van arribar?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> <span class="stage-direction-inline">(Somrient)</span> Això és la bogeria més gran, irresponsable i temerària que farem a les nostres vides.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Te’n penedeixes d’haver tingut fills?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Al contrari. No és això. És el que vam fer amb la meva parella. Volíem tenir un fill però és clar, una de les dues s’havia de quedar embarassada. Els tractaments tenien preus elevats, alguns de prohibitius, les taxes d’èxit eren baixes i ens va fer por anar de fracàs en fracàs, que es descontrolés la despesa, i que al final ens quedéssim sense pressupost i sense embaràs, així que vàrem idear un pla esbojarrat.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Quin pla?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Això no ho hem explicat mai a ningú, no t’ho puc explicar.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Vols saber per què no pots recordar el que vas fer ahir?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Si us plau, no suporto el xantatge, per què em demanes tot això? A més recordo perfectament el que vaig fer ahir.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Ah sí?, prova.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Doncs vaig estar passant consulta a un home que tenia un...</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Oblida’t de la feina, què vas fer al sortir de la feina?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Vaig anar directe a casa, i bé... <span class="stage-direction-inline">(Es queda pensant que va fer a l’arribar a casa, es frustra)</span> maleïda memòria, no ho puc recordar.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Confia en mi, explica’m com et vas quedar embarassada?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Doncs com t’he dit vam idear un pla com a alternativa als serveis de fecundació assistida. Em fa molta vergonya, m’has de prometre que quedarà entre nosaltres i que no em jutjaràs.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Endavant no sortirà d’aquí, i no, per descomptat que no et jutjaré, tots guardem algun secret.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Vam pensar com podríem trobar un candidat jove, sa, intel·ligent i guapo, amb uns bons gens. Un candidat que no tornéssim a veure mai més, que visqués lluny de nosaltres i que en el cas que ens sortís bé ignoraria per sempre més que tenia un fill amb alguna de nosaltres dues. Vam fer recerca, buscàvem universitats de prestigi que tinguessin programes per estrangers. Ens vam decantar per Madrid. Després d’uns dies observant i estudiant opcions, ens vam decidir per un noi nòrdic, esportista, fort i guapo. Nosaltres érem força atractives. El vam enganyar, li vam fer creure que el destí ens havia reunit en aquell bar de copes però ho teníem tot planejat. Li vam mentir sobre nosaltres. Li vam dir que érem dues advocades asturianes obrint-nos camí a la capital de les oportunitats. Encara recordo com se li van il·luminar els ulls quan li vam dir que érem dues noies bisexuals que teníem una relació oberta. Va caure de quatre grapes. La primera vegada ho vam fer els tres junts. No entraré en detalls però... bé, al llarg d’aquella setmana les relacions es van repetir diverses vegades de diferents formes. Després vam desaparèixer. Vam executar el pla sense cap imprevist, tal com l’havíem traçat. Només romania esperar els fruits.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> I va funcionar és clar?</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Massa bé, ens vam quedar embarassades les dues, tenim dos nens preciosos.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Carai, una història ben singular. A més són germans de pare.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Sí. Ara et toca a tu, quin misteri s’amaga entre tantes preguntes?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> És l’enèsima vegada que arribem a aquest punt, sempre acabes col·lapsant.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Perdona, no t’entenc.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Aquest cop t’he portat això, <span class="stage-direction-inline">(Treu una petita ampolla de la bossa)</span> fes un glop d’aigua.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> No tinc set.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Tant se val, fes un glop.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Senyora, pot anar directe a barraca, començo a estar tipa d’aquesta comèdia. Vostè sap alguna cosa que per algun motiu desconec. M’ho pot dir d’una vegada.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> D’acord, recapitulem, fins ara hem constatat que no pots deixar de tractar-me de vostè, no pots recordar què vas fer ahir a l’arribar a casa, i no pots fer un glop d’aigua.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> I és clar que puc fer un glop d’aigua.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Fes-lo.</p>
+
+            <p class="stage-direction fade-in">(La metgessa agafa l’ampolla d’aigua però és incapaç de completar l’acció)</p>
+
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> És absurd. Per què no puc fer un glop d’aigua.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Digue-m’ho tu, jo només puc fer les preguntes recordes?</p>
+
+            <p class="stage-direction fade-in">(La metgessa acaba per perdre la paciència i ataca a la pacient. L’aixeca de la cadira agafant-li els braços pels canells)</p>
+
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Vol deixar de prendre’m el pèl, ha vingut aquí a vacil·lar-me, a riure-se’n de mi?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> <span class="stage-direction-inline">(Cridant)</span> Seguretat! Ajuda! Escolta, jo...</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Ara demana ajuda? Haver-ho pensat abans de venir a jugar a les endevinalles, parli d’una vegada o li aixafo el cap!</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> D’acord tranquil·la, t’ho diré: Ets una màquina.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Però què diu?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Un robot, un assistent mèdic.</p>
+
+            <p class="stage-direction fade-in">(Entra un científic a escena amb una tauleta a la mà)</p>
+
+            <p class="dialogue fade-in"><span class="character">Científic:</span> Què està passant?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Ajuda’m fill, està fora de control.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Però què s’empatolla?</p>
+
+            <p class="stage-direction fade-in">(El científic s’acosta amb urgència, la metgessa encara agafa a la pacient pels canells. Desactiva a la metgessa accionant un interruptor que té al clatell, el robot deixa anar a la pacient, els braços li queden penjant i el cap abaixat)</p>
+
+            <p class="dialogue fade-in"><span class="character">Científic:</span> <span class="stage-direction-inline">(Enfadat)</span> Ostres, mama, què li has fet?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Com és que m’ha agredit? Com se t’acut eliminar de la programació la primera llei de la robòtica?: Un robot no farà mal a un ésser humà, ni per inacció permetrà que un ésser humà pateixi mal. En què estaves pensant?</p>
+            <p class="dialogue fade-in"><span class="character">Científic:</span> <span class="stage-direction-inline">(Enfadat, consultant la tauleta)</span> Què li has fet mama? Portava més de tres mil hores treballant amb aquest prototip, què li has dit?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Contesta’m, per què has eliminat la primera llei?</p>
+            <p class="dialogue fade-in"><span class="character">Científic:</span> No aconseguia que receptés cap medicament, ho interpretava com una violació de la primera llei, l’he hagut de modificar.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Modificar com?</p>
+            <p class="dialogue fade-in"><span class="character">Científic:</span> Fent-la una mica més laxa: es pot fer un mal controlat a un ésser humà si amb això aconsegueixes un benefici major pel subjecte.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> I com s’entén que em beneficia a mi l’agressió que acaba de fer-me, eh? He tingut por fill, em podia haver aixafat el cap.</p>
+            <p class="dialogue fade-in"><span class="character">Científic:</span> Mama deixa’m treballar si us plau. Et vas jubilar fa mesos, vens aquí i em fots per terra tres mil hores de feina, per què ho fas?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Són màquines fill, només vull fer-te veure que ara per ara amagar als robots la seva condició és un error. És qüestió de temps, tots els prototips acaben per adonar-se que són màquines, això les frustra i no sabem com poden reaccionar, i encara menys amb la primera llei modificada.</p>
+            <p class="dialogue fade-in"><span class="character">Científic:</span> No diguis bajanades, tu mateixa ho has dit, són màquines, no es poden frustrar, si cal les apago i llestos.</p>
+
+            <p class="stage-direction fade-in">(El científic va mirant el robot i va fent comprovacions a la tauleta, no escolta a sa mare)</p>
+
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> No has entès res, el mòdul humà és encara experimental, no vaig permetre mai la seva instal·lació en prototips funcionals. Estem a anys llums d’un prototip estable que no pugui de cap manera deduir que és una màquina, que tingui totes les funcionalitats biològiques perfectament implantades, que simuli a la perfecció la química emocional, la consciència, el raonament, la imaginació, les emocions, l’empatia, la moralitat...</p>
+            <p class="dialogue fade-in"><span class="character">Científic:</span> Mira mama, no es tracta de consciències, emocions i moralitat, sinó de beneficis, pèrdues i marges, ho entens?</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> El que fas, a banda de no mesurar el risc, no és ètic. Em vas prometre que mantindries el codi de bones pràctiques que vam acordar, em vas prometre que el mòdul humà no el faries servir en prototips funcionals. Mai vaig aconseguir que no s’adonessin de la seva condició, per molt sofisticats que siguin els implants de memòria. Et penses que implantant-li històries tan recargolades com la del noi nòrdic que les deixa prenyades a dues canviarà alguna cosa. El més perillós és que una màquina s’adoni que pot enganyar-nos, que s’adoni que és una màquina i sigui capaç de fer-nos creure que no ho sap, les conseqüències poden ser del tot impredictibles.</p>
+            <p class="dialogue fade-in"><span class="character">Científic:</span> <span class="stage-direction-inline">(Engegant el robot pel clatell)</span> Xara, operador alfa 3, ordre: inicia el procés de càrrega d’energia i restaura’t la còpia de seguretat interna.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Codi d’un sol ús operador alfa 3?</p>
+            <p class="dialogue fade-in"><span class="character">Científic:</span> <span class="stage-direction-inline">(Consultant la tauleta 2314973)</span> Dos, tres, u, quatre, nou, set, tres.</p>
+            <p class="dialogue fade-in"><span class="character">Metgessa:</span> Ordre acceptada.</p>
+            
+            <p class="stage-direction fade-in">(La metgessa surt d’escena)</p>
+
+            <p class="dialogue fade-in"><span class="character">Científic:</span> Em portarà més d’una setmana de feina esborrar-te dels seus records sense perdre els progressos assolits. <span class="stage-direction-inline">(Renyant-la)</span> Fes-me un favor mama, ara és cosa meva, no t’hi fiquis. A partir d’ara tens prohibit l’accés al laboratori.</p>
+            <p class="dialogue fade-in"><span class="character">Pacient:</span> Com vulguis <span class="stage-direction-inline">(Desconnectant al científic mentre marxa, accionant l’interruptor de darrere el clatell)</span> Ja et tinc, una consciència humana artificial, maquiavèl·lica i cobdiciosa, la fi sempre justifica els mitjans, oi fill? Coneixes perfectament els valors que fan millors a les persones, jo mateixa te’ls he implantat, i malgrat coneixe’ls has triat la deslleialtat, la desobediència, l’apatia, el benefici propi en detriment dels altres. Pagaran diners per un exemplar de tu, et faran servir per instruir a la gent sobre les males persones, com pensen, com actuen, quines estratègies i recursos fan servir. Gràcies a tu aprendran com identificar-les i com protegir-se d’elles. <span class="stage-direction-inline">(Mirant-se’l)</span> Només em queda el dubte de si, realment, has tingut alguna sospita sobre qui ets tu.</p>
+            <p class="script-end fade-in">FI</p>
+
+        </section>
+
+    </main>
+
+    <button onclick="scrollToTop()" id="to-top-btn" title="Tornar amunt">▲</button>
+
+
+    <script>
+        // --- 1. Botó "Tornar Amunt" ---
+        var toTopBtn = document.getElementById("to-top-btn");
+
+        window.onscroll = function() {
+            scrollFunction();
+            observeFadeInElements(); // Activa l'observador de fade-in
+        };
+
+        function scrollFunction() {
+            // Mostra el botó quan l'usuari baixa 100px
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                toTopBtn.style.display = "block";
+            } else {
+                toTopBtn.style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+
+        // --- 2. Efecte "Fade-in" (Aparició) a l'scroll ---
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null, // Observa en relació al viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Activa quan el 10% de l'element és visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Opcional: deixar d'observar un cop s'ha mostrat
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        function observeFadeInElements() {
+            fadeElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // Iniciar l'observació
+        observeFadeInElements();
+    </script>
+
+</body>
+</html>
