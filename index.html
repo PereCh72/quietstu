@@ -196,6 +196,53 @@
             margin-bottom: 2rem;
         }        
 
+
+				/* ▼ AFEGEIX EL BLOC NOU AQUÍ ▼ */
+				.download-section {
+				    text-align: center;
+				    margin-top: 2rem;
+				    margin-bottom: 4rem; /* Més espai al final */
+				}
+
+				.download-link {
+				    display: inline-block;
+				    background-color: var(--color-accent);
+				    color: white;
+				    font-family: 'Montserrat', sans-serif;
+				    font-weight: 700;
+				    padding: 12px 25px;
+				    border-radius: 50px;
+				    text-decoration: none;
+				    transition: background-color 0.3s;
+				    margin-bottom: 1.5rem;
+				}
+
+				.download-link:hover {
+				    background-color: #5cb85c; /* Un verd una mica més clar */
+				}
+
+				.author-note {
+				    font-size: 0.9rem;
+				    color: var(--color-secundari);
+				    font-style: italic;
+				    line-height: 1.5;
+				}
+
+				.author-note a {
+				    color: var(--color-text); /* Que el link de l'email ressalti una mica */
+				    text-decoration: none;
+				}
+
+				.author-note a:hover {
+				    text-decoration: underline;
+				}
+				/* ▲ FINS AQUÍ ▲ */
+
+
+				.no-italic {
+				    font-style: normal;
+				}
+
         /* --- Efecte de Fade-in (Aparició) --- */
         .fade-in {
             opacity: 0;
@@ -270,7 +317,7 @@
     <header class="hero">
         <div class="hero-content">
             <h1>QUI ETS TU?</h1>
-            <p>Un guió de microteatre de Pere Chardi Garcia</p>
+            <p>Un guió de microteatre de<br>Pere Chardi Garcia</p>
         </div>
         <a href="#guió" class="scroll-down">Llegir el guió</a>
     </header>
@@ -478,6 +525,16 @@
             <p class="dialogue fade-in"><span class="character">Científic:</span> Em portarà més d’una setmana de feina esborrar-te dels seus records sense perdre els progressos assolits. <span class="stage-direction-inline">(Renyant-la)</span> Fes-me un favor mama, ara és cosa meva, no t’hi fiquis. A partir d’ara tens prohibit l’accés al laboratori.</p>
             <p class="dialogue fade-in"><span class="character">Pacient:</span> Com vulguis <span class="stage-direction-inline">(Desconnectant al científic mentre marxa, accionant l’interruptor de darrere el clatell)</span> Ja et tinc, una consciència humana artificial, maquiavèl·lica i cobdiciosa, la fi sempre justifica els mitjans, oi fill? Coneixes perfectament els valors que fan millors a les persones, jo mateixa te’ls he implantat, i malgrat coneixe’ls has triat la deslleialtat, la desobediència, l’apatia, el benefici propi en detriment dels altres. Pagaran diners per un exemplar de tu, et faran servir per instruir a la gent sobre les males persones, com pensen, com actuen, quines estratègies i recursos fan servir. Gràcies a tu aprendran com identificar-les i com protegir-se d’elles. <span class="stage-direction-inline">(Mirant-se’l)</span> Només em queda el dubte de si, realment, has tingut alguna sospita sobre qui ets tu.</p>
             <p class="script-end fade-in">FI</p>
+            
+            
+            <div class="download-section fade-in">
+                <a href="QuiEtsTu.pdf" class="download-link" download>Descarrega el guió en PDF</a>
+                <p class="author-note">
+                    Si representeu l'obra, aviseu-me a 
+                    <a href="mailto:pere.chardi@gmail.com">pere.chardi@gmail.com</a>. 
+                    <br>Potser m'hi acosto a veure-la! <span class="no-italic">😊</span>
+                </p>
+            </div>
 
         </section>
 
