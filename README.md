@@ -11,5 +11,5 @@ Pots llegir el guió en format de pàgina web en aquest enllaç:
 https://perech72.github.io/quietstu/
 
 ---
-*Guió original de Pere Chardi Garcia.*
+*Guió original de Pere Chardi Garcia.* 
 
